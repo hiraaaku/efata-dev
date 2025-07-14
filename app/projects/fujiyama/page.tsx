@@ -100,10 +100,12 @@ export default function FujiyamaPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/login?project=fujiyama">
-              <Button size="lg" className="mr-4">
-                Live Demo
-              </Button>
+            <Link href="/login?project=fujiyama" passHref legacyBehavior>
+              <a>
+                <Button size="lg" className="mr-4">
+                  Live Demo
+                </Button>
+              </a>
             </Link>
             <Button size="lg" variant="outline">
               View Source Code
