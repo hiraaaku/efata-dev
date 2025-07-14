@@ -1,12 +1,24 @@
-FROM nginx:alpine
+# Tahap Build
+FROM node:18-alpine AS builder
 
-# Ganti default Nginx listen port dari 80 ke 3010
-RUN sed -i 's/80;/3010;/' /etc/nginx/conf.d/default.conf
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
 
-# Salin hasil build landing page ke direktori HTML Nginx
-COPY dist /usr/share/nginx/html
+# Tahap Production
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+# Salin node_modules dan output build dari tahap builder
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
 
 # Ekspose port 3010
 EXPOSE 3010
 
-CMD ["nginx", "-g", "daemon off;"]
+# Jalankan Next.js
+CMD ["npm", "start"]
