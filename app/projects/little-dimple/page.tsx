@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, ShoppingCart, CreditCard, Users, BarChart3 } from "lucide-react"
@@ -98,9 +100,11 @@ export default function EcommercePage() {
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="mr-4">
-              Live Demo
-            </Button>
+            <Link href="/login?project=little-dimple">
+              <Button size="lg" className="mr-4">
+                Live Demo
+              </Button>
+            </Link>
             <Button size="lg" variant="outline">
               View Source Code
             </Button>

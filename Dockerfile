@@ -1,24 +1,29 @@
-# Tahap Build
+# Stage 1: Build
 FROM node:18-alpine AS builder
-
 WORKDIR /app
+
+# Copy project files
 COPY . .
-RUN npm install
+
+# Install dependencies
+RUN npm install --legacy-peer-deps
+
+# Build Next.js app
 RUN npm run build
 
-# Tahap Production
+# Stage 2: Run
 FROM node:18-alpine AS runner
-
 WORKDIR /app
 
-# Salin node_modules dan output build dari tahap builder
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
+# Copy built app from builder
+COPY --from=builder /app ./
 
-# Ekspose port 3010
+# Set env vars for Next.js port and host
+ENV PORT=3010
+ENV HOST=0.0.0.0
+
+# Expose port
 EXPOSE 3010
 
-# Jalankan Next.js
+# Start the app
 CMD ["npm", "start"]
