@@ -2,7 +2,7 @@
 "use client"
 
 import { Suspense } from "react"
-import LoginPageContent from "./login-content"
+import LoginPageContent from "app/projects/login/login-content"
 
 export default function LoginPage() {
   return (
