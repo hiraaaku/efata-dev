@@ -1,5 +1,3 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Database, BarChart3, Download, Users } from "lucide-react"
@@ -100,12 +98,10 @@ export default function DashboardPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/login?project=dashboard" passHref legacyBehavior>
-              <a>
-                <Button size="lg" className="mr-4">
-                  Live Demo
-                </Button>
-              </a>
+            <Link href="/login?project=dashboard">
+              <Button size="lg" className="mr-4">
+                Live Demo
+              </Button>
             </Link>
             <Button size="lg" variant="outline">
               View Source Code
