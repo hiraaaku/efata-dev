@@ -8,7 +8,7 @@ export default function HomePage() {
   const projects = [
     {
       id: "little-dimple",
-      title: "Little Dimple",
+      title: "LD - Ecommerce Platform",
       description: "Platform jual beli online dengan fitur lengkap, payment gateway, dan dashboard admin",
       icon: <Globe className="h-8 w-8" />,
       color: "from-blue-500 to-cyan-500",
@@ -17,7 +17,7 @@ export default function HomePage() {
     },
     {
       id: "nirmala",
-      title: "Nirmala",
+      title: "NA Tracking",
       description: "Opportunity Tracking Management",
       icon: <Palette className="h-8 w-8" />,
       color: "from-purple-500 to-pink-500",
@@ -35,7 +35,7 @@ export default function HomePage() {
     },
     {
       id: "fujiyama",
-      title: "Fujiyama",
+      title: "F Manajement",
       description: "Inventory management",
       icon: <Layers className="h-8 w-8" />,
       color: "from-orange-500 to-red-500",
